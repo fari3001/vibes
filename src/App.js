@@ -1,7 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import {getMusicData} from './api'
+import { useEffect } from 'react';
 
 function App() {
+
+  useEffect(() => {
+    getMusicData()
+    .then((response) => {
+      // do stuff with responseJSON here...
+      console.log(response) })
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
