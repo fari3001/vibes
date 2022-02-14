@@ -1,8 +1,9 @@
 var axios = require("axios").default;
 
-var options = {
-  method: 'GET',
-  url: 'https://shazam-core.p.rapidapi.com/v1/artists/details',
+const URL = 'https://shazam-core.p.rapidapi.com/v1/artists/details'
+
+
+const options = {
   params: {artist_id: '43328183'},
   headers: {
     'x-rapidapi-host': 'shazam-core.p.rapidapi.com',
@@ -10,8 +11,11 @@ var options = {
   }
 };
 
-axios.request(options).then(function (response) {
-	console.log(response.data);
-}).catch(function (error) {
-	console.error(error);
-});
+export const getMusicData = async () => {
+  try {
+    const {data} = await axios.get(URL, options);
+    return data
+  } catch (error) {
+    console.log(error)
+  }
+}
