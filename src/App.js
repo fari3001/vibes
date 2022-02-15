@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-import {getMusicData} from './api'
+// import './App.css';
+import {getMusicData} from './api';
+import Artists from './components/Artists/Artists';
 import { useEffect } from 'react';
 import AppBar from './components/AppBar/AppBar';
 
@@ -16,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <AppBar />
+      <Artists />
     </div>
   );
 }
