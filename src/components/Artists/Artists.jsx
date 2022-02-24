@@ -6,35 +6,45 @@ import ListSubheader from '@mui/material/ListSubheader';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 
-export default function TitlebarImageList() {
+export default function TitlebarImageList(artist) {
+  console.log(artist)
   return (
-    <ImageList sx={{ width: 1, height: 1 }}>
-      <ImageListItem key="Subheader" cols={4}>
-        <ListSubheader component="div">December</ListSubheader>
-      </ImageListItem>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            src={`${item.img}?w=248&fit=crop&auto=format`}
-            srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-            alt={item.title}
-            loading="lazy"
-          />
-          <ImageListItemBar
-            title={item.title}
-            subtitle={item.author}
-            actionIcon={
-              <IconButton
-                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                aria-label={`info about ${item.title}`}
-              >
-                <InfoIcon />
-              </IconButton>
-            }
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
+    // <ImageList sx={{ width: 1, height: 1 }}>
+    //   <ImageListItem key="Subheader" cols={4}>
+    //     <ListSubheader component="div">December</ListSubheader>
+    //   </ImageListItem>
+    //   {itemData.map((item) => (
+    //     <ImageListItem key={item.img}>
+    //       <img
+    //         src={`${item.img}?w=248&fit=crop&auto=format`}
+    //         srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+    //         alt={item.title}
+    //         loading="lazy"
+    //       />
+    //       <ImageListItemBar
+    //         title={item.title}
+    //         subtitle={item.author}
+    //         actionIcon={
+    //           <IconButton
+    //             sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+    //             aria-label={`info about ${item.title}`}
+    //           >
+    //             <InfoIcon />
+    //           </IconButton>
+    //         }
+    //       />
+    //     </ImageListItem>
+    //   ))}
+    // </ImageList>
+    <div>
+      <div className="artist-wrapper">
+        <img src={artist.artist?.share.image} />
+        <div>
+        <h3>{artist.artist?.name}</h3>
+        <p>Genre: {artist.artist?.genres.primary}</p>  
+        </div>
+      </div>
+    </div>
   );
 }
 
